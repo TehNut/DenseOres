@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "denseores",
+  "name": "DenseOres",
+  "description": "Dense variants of any ore you want.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": [ "RWTema" ],
+  "credits": "TehNut for fixing the everything and teaching the mod the unlocalized name for dirt.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

@@ -1,5 +1,6 @@
 package com.rwtema.denseores;
 
+import net.minecraft.init.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -12,11 +13,13 @@ import java.io.File;
 
 @Mod(modid = DenseOresMod.MODID, version = DenseOresMod.VERSION, dependencies = "after:*")
 public class DenseOresMod {
+
     public static final String MODID = "denseores";
-    public static final String VERSION = "1.0";
+    public static final String VERSION = "@VERSION@";
 
     @SidedProxy(serverSide = "com.rwtema.denseores.Proxy", clientSide = "com.rwtema.denseores.ProxyClient")
     public static Proxy proxy;
+
     public static BlockDenseOre block;
 
     private File config;
@@ -24,7 +27,6 @@ public class DenseOresMod {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         config = event.getSuggestedConfigurationFile();
-
     }
 
     @Mod.EventHandler
@@ -33,7 +35,7 @@ public class DenseOresMod {
         LogHelper.info("Ph'nglui mglw'nafh, y'uln Dense Ores shugg ch'agl");
         DenseOresConfig.instance.loadConfig(config);
         DenseOresRegistry.buildBlocks();
-        DenseModelGenerator.register();
+        proxy.init();
 
         DenseOresRegistry.buildOreDictionary();
         //ModIntegration.addModIntegration();
@@ -46,8 +48,7 @@ public class DenseOresMod {
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit();
-        LogHelper.info("Dense Ores is fully loaded but sadly it cannot tell you the unlocalized name for dirt.");
+        LogHelper.info("Dense Ores is fully loaded and thankfully it can tell you the unlocalized name of dirt.");
+        LogHelper.info(Blocks.dirt.getUnlocalizedName());
     }
-
-
 }

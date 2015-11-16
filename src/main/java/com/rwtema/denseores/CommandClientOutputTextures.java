@@ -15,14 +15,14 @@ import java.io.IOException;
 //Command to allow texture pack makers to retrieve the generated textures
 @SideOnly(Side.CLIENT)
 public class CommandClientOutputTextures extends CommandBase {
+
     @Override
-    public String getName() {
+    public String getCommandName() {
         return "denseores_outputtextures";
     }
 
-
     @Override
-    public boolean canCommandSenderUse(ICommandSender par1ICommandSender) {
+    public boolean canCommandSenderUseCommand(ICommandSender commandSender) {
         return true;
     }
 
@@ -33,9 +33,9 @@ public class CommandClientOutputTextures extends CommandBase {
     }
 
     @Override
-    public void execute(ICommandSender var1, String[] var2) {
+    public void processCommand(ICommandSender commandSender, String[] args) {
         BlockDenseOre dense_ore_blocks = DenseOresMod.block;
-        for (int meta = 0; meta < dense_ore_blocks.maxMetdata; meta++) {
+        for (int meta = 0; meta < BlockDenseOre.maxMetdata; meta++) {
             if (dense_ore_blocks.isValid(meta) && DenseModelGenerator.icons[meta] instanceof TextureOre) {
                 TextureOre textureOre = (TextureOre) DenseModelGenerator.icons[meta];
 

@@ -41,6 +41,7 @@ public class BlockDenseOre extends BlockOre {
     public Block[] baseBlocks;
     public boolean[] valid;
     public boolean init = false;
+
     public BlockDenseOre() {
         super();
 
