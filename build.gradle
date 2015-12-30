@@ -5,7 +5,7 @@ buildscript {
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.0-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
         classpath 'org.ajoberstar:gradle-git:0.10.1'
     }
 }
@@ -31,11 +31,11 @@ if (new File(projectDir, '.git').exists())
     gitHash = repo.log().find().abbreviatedId
 
 repositories {
-
+    maven { url "http://dvs1.progwml6.com/files/maven" }
 }
 
 dependencies {
-
+    deobfCompile "mezz.jei:jei_${mc_version}:${jei_version}"
 }
 
 minecraft {
@@ -83,13 +83,7 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
 }
 
-// Deobfuscated jar
-task deobfJar(type: Jar) {
-    from sourceSets.main.output
-    classifier = 'deobf'
-}
-
-tasks.build.dependsOn sourceJar, javadocJar, deobfJar
+tasks.build.dependsOn sourceJar, javadocJar
 
 tasks.withType(JavaCompile) { task ->
     task.options.encoding = 'UTF-8'
@@ -102,7 +96,6 @@ publishing {
             artifact jar
             artifact sourceJar
             artifact javadocJar
-            artifact deobfJar
         }
     }
     repositories {
@@ -123,7 +116,6 @@ curseforge {
         changelog = project.hasProperty('changelog') ? project.changelog : ''
         releaseType = 'alpha'
 
-        addArtifact deobfJar
         addArtifact sourceJar
         addArtifact javadocJar
     }

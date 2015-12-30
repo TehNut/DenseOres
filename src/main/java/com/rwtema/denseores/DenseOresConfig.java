@@ -49,7 +49,6 @@ public class DenseOresConfig {
                     // register the block
                     if (!DenseOresRegistry.hasEntry(id) && config.hasKey(cat, "baseBlock") && config.hasKey(cat, "baseBlockTexture")) {
 
-
                         DenseOre denseOre = DenseOresRegistry.registerOre(id,
                                 config.get(cat, "baseBlock", "").getString().trim(),
                                 config.get(cat, "baseBlockMeta", 0).getInt(0),

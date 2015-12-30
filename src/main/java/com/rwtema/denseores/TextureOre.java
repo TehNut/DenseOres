@@ -296,7 +296,11 @@ public class TextureOre extends TextureAtlasSprite {
         ore_image[0] = output_image;
 
         // load the texture
-        this.loadSprite(ore_image, animation);
+        try {
+            this.loadSprite(ore_image, animation);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         LogHelper.info("Dense Ores: Succesfully generated dense ore texture for '" + name + "' with background '" + base + "'. Place " + name + "_dense.png in the assets folder to override.");
         return false;

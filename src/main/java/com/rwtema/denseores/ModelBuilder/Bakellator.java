@@ -35,9 +35,10 @@ public class Bakellator {
     }
 
     public SimpleBakedModel bake(TextureAtlasSprite texture, boolean ambientOcclusion, boolean gui3d, ItemCameraTransforms camera) {
-        SimpleBakedModel model = new SimpleBakedModel(generalQuads, faceQuads, ambientOcclusion, gui3d, texture, camera);
-        reset();
-        return model;
+//        SimpleBakedModel model = new SimpleBakedModel(generalQuads, faceQuads, ambientOcclusion, gui3d, texture, camera);
+//        reset();
+//        return model;
+        return null;
     }
 
     public void reset() {

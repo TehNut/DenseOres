@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.io.File;
 
-@Mod(modid = DenseOresMod.MODID, version = DenseOresMod.VERSION, dependencies = "after:*")
+@Mod(modid = DenseOresMod.MODID, version = DenseOresMod.VERSION, dependencies = "after:*", acceptedMinecraftVersions = "[1.8.8, 1.8.9]")
 public class DenseOresMod {
 
     public static final String MODID = "denseores";
